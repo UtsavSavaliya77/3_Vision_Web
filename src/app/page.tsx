@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/home/HeroSection";
 import ShowReelSection from "@/components/sections/home/ShowReelSection";
 import ServicesSection from "@/components/sections/home/ServiceSection";
 import PackagesSection from "@/components/sections/home/PackagesSection";
+import EditingSection from "@/components/sections/home/EditingSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
     <ShowReelSection/>
     <ServicesSection/>
     <PackagesSection/>
+    <EditingSection/>
     </>
   );
 }

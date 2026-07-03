@@ -55,24 +55,24 @@ export default function PackagesSection() {
             </div>
 
             {/* ================= CONTENT GRID ================= */}
-            <div className="relative mx-auto grid max-w-[75rem] grid-cols-1 items-center lg:grid-cols-2">
+            <div className="relative mx-auto grid max-w-[75rem] grid-cols-1 items-center md:grid-cols-2">
 
                 {/* ================= LEFT ================= */}
                 <div>
                     <div className="mb-4 flex items-center gap-3">
                         <span className="h-[2px] w-10 bg-red-500" />
-                        <p className={`${poppins.className} text-xs uppercase tracking-[0.3em] text-white/60`}>
+                        <p className={`${poppins.className} text-[11px] uppercase tracking-[0.18em] text-[#ffffffa8] font-[600]`}>
                             // Content Packages
                         </p>
                     </div>
 
-                    <h2 className={`${instrumentSerif.className} max-w-4xl text-[44px] leading-[0.95] text-white md:text-[64px] lg:text-7xl`}>
-                        <span className="font-serif italic">Every business has a story. <span className="text-red-500">We make it reel-worthy.
+                    <h2 className={`${instrumentSerif.className} text-[2.25rem] leading-[0.95] text-white tracking-[-0.025em] md:text-[6vw] md:max-w-xs lg:max-w-lg`}>
+                        <span>Every business has a story. <span className="text-red-500">We make it reel-worthy.
                         </span>
                         </span>
                     </h2>
 
-                    <p className={`${poppins.className} mt-6 max-w-md text-[12px] md:text-[15px] text-white/70 `}>
+                    <p className={`${poppins.className} mt-6 max-w-lg text-[15px] leading-relexed text-muted-white `}>
                         From cafes and restaurants to shops, cars, products, anchors and events —
                         3Vision Studio shoots, edits and delivers cinematic content built for Instagram impact.
                     </p>
