@@ -343,7 +343,7 @@ export default function EditingSection() {
                                                             ref={(node) => {
                                                                 clipRefs.current[currentIndex] = node;
                                                             }}
-                                                            className={`relative flex h-5 shrink-0 items-center justify-center overflow-hidden rounded-[2px] border ${clipClasses(
+                                                            className={`relative flex h-5 shrink-0 items-center justify-center overflow-hidden rounded-[2px] border transition-all duration-300 hover:z-20 hover:shadow-[0_0_6px_rgba(239,29,40,0.55),0_0_12px_rgba(239,29,40,0.25)] ${clipClasses(
                                                                 clip.color,
                                                             )}`}
                                                             style={{
