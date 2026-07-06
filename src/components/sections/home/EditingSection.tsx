@@ -145,7 +145,10 @@ export default function EditingSection() {
             (bar): bar is HTMLSpanElement => Boolean(bar),
         );
 
-        const ctx = gsap.context(() => {
+        // Waveform animation is now driven by CSS (.wave-bar + per-bar
+    // animation-delay) — see globals.css. GSAP is reserved for the
+    // one-shot clip/playhead entrance.
+    const ctx = gsap.context(() => {
             gsap.fromTo(
                 ".editing-copy",
                 {
@@ -225,29 +228,6 @@ export default function EditingSection() {
             playheadTimeline.to(playheads, {
                 opacity: 0,
                 duration: 0.15,
-            });
-
-            // Waveform infinite animation
-            waveformBars.forEach((bar, index) => {
-                const minScale = gsap.utils.random(0.35, 0.65);
-                const maxScale = gsap.utils.random(0.85, 1.35);
-                const duration = gsap.utils.random(0.35, 0.8);
-
-                gsap.fromTo(
-                    bar,
-                    {
-                        scaleY: minScale,
-                        transformOrigin: "bottom center",
-                    },
-                    {
-                        scaleY: maxScale,
-                        duration,
-                        repeat: -1,
-                        yoyo: true,
-                        ease: "sine.inOut",
-                        delay: index * 0.012,
-                    },
-                );
             });
         }, section);
 

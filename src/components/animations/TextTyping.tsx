@@ -9,7 +9,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { gsap } from "gsap";
 
 interface TextTypeProps {
   className?: string;
@@ -136,25 +135,14 @@ const TextType = ({
     };
   }, [startOnVisible]);
 
+  // Cursor blink is handled entirely by CSS via the inline `animation` style
+  // on the cursor <span>, so no GSAP context is created here.
   useEffect(() => {
     if (!showCursor || !cursorRef.current) return;
-
     const cursor = cursorRef.current;
-
-    gsap.set(cursor, {
-      opacity: 1,
-    });
-
-    const cursorTween = gsap.to(cursor, {
-      opacity: 0,
-      duration: cursorBlinkDuration,
-      repeat: -1,
-      yoyo: true,
-      ease: "power2.inOut",
-    });
-
+    cursor.style.animation = `cursorBlink ${cursorBlinkDuration}s steps(2, jump-none) infinite alternate`;
     return () => {
-      cursorTween.kill();
+      cursor.style.animation = "";
     };
   }, [showCursor, cursorBlinkDuration]);
 

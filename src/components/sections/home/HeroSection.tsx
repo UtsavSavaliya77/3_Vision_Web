@@ -1,9 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useCallback, useRef, useState } from "react";
 import { Instrument_Serif, Poppins } from "next/font/google";
 import BorderGlow from "@/components/animations/BorderGlow";
+
+const DotField = dynamic(
+    () => import("@/components/animations/DotField"),
+    {
+        ssr: false,
+    }
+);
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -18,15 +26,14 @@ const instrumentSerif = Instrument_Serif({
     style: "italic",
 });
 
-const DotField = dynamic(() => import("@/components/animations/DotField"), {
-    ssr: false,
-});
+const TAGS = ["REELS", "CAFE", "EDITING", "EVENTS"];
 
 export default function HeroSection() {
-    const videoRef = useRef<HTMLVideoElement | null>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
     const [playing, setPlaying] = useState(true);
 
-    const toggleVideo = () => {
+    const toggleVideo = useCallback(() => {
         if (!videoRef.current) return;
 
         if (playing) {
@@ -35,8 +42,8 @@ export default function HeroSection() {
             videoRef.current.play();
         }
 
-        setPlaying(!playing);
-    };
+        setPlaying((prev) => !prev);
+    }, [playing]);
 
     return (
         <section className="relative pt-35 pb-25 lg:pt-48 w-full bg-black font-[Poppins]">
@@ -61,19 +68,26 @@ export default function HeroSection() {
 
             {/* BACKGROUND VIDEO */}
             <video
-                className="absolute inset-0 w-full h-full object-cover opacity-30 z-10"
+                className="absolute inset-0 h-full w-full object-cover opacity-30 z-10"
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="metadata"
             >
-                <source src="/videos/hero.mp4" type="video/mp4" />
+                <source
+                    src="/videos/hero.mp4"
+                    type="video/mp4"
+                />
             </video>
 
             {/* SCAN LINE */}
             <div className="scan-line-vertical" />
 
-            <div aria-hidden="true" className="pointer-events-none absolute inset-5 md:inset-8 z-10">
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-5 md:inset-8 z-10"
+            >
                 <span className="absolute size-8 border-white/40 top-0 left-0 border-t border-l"></span>
                 <span className="absolute size-8 border-white/40 top-0 right-0 border-t border-r"></span>
                 <span className="absolute size-8 border-white/40 bottom-0 left-0 border-b border-l"></span>
@@ -87,7 +101,7 @@ export default function HeroSection() {
                     {/* LEFT CONTENT */}
                     <div className="max-w-2xl text-white">
 
-                        {/* 🔴 BADGE */}
+                        {/* BADGE */}
                         <div
                             className={`${poppins.className} inline-flex items-center gap-2 rounded-full px-3 py-1.5 glass-panel mb-5 border border-white/20 bg-white/5 backdrop-blur-md max-w-[90vw]`}
                         >
@@ -101,19 +115,19 @@ export default function HeroSection() {
                         {/* HEADING */}
                         <h1
                             className={`${instrumentSerif.className} text-[44px] md:text-[76.8px] lg:text-[106px] italic leading-[1.05] max-w-[14ch]`}
-
                         >
                             We Create Videos
                             People Actually Watch.
                         </h1>
 
-
-                        {/* SUB TEXT */}
-                        <p className={` ${poppins.className} mt-6 text-white/70 max-w-lg text-[15px] sm:text-base md:text-[15px] tracking-wide leading-relaxed`}>
+                        {/* SUBTEXT */}
+                        <p
+                            className={`${poppins.className} mt-6 text-white/70 max-w-lg text-[15px] sm:text-base md:text-[15px] tracking-wide leading-relaxed`}
+                        >
                             Cinematic reels, sharp edits and brand films crafted to stop the scroll and build real impact.
                         </p>
 
-                        {/* BUTTONS */}
+                                                {/* BUTTONS */}
                         <div className="flex mt-8 ml-[-14px] gap-0 flex-wrap items-center">
 
                             {/* WHITE BUTTON */}
@@ -130,13 +144,13 @@ export default function HeroSection() {
                                 className="inline-flex w-fit"
                             >
                                 <div className="group relative p-3 rounded-full bg-transparent border-color-transparent">
-
-                                    <a
+                                    <Link
                                         href="/work"
                                         className="group btn-glow relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-medium overflow-hidden"
                                     >
                                         <span className="relative z-[1] flex items-center gap-2">
                                             Watch Our Work
+
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="18"
@@ -149,15 +163,15 @@ export default function HeroSection() {
                                                 strokeLinejoin="round"
                                                 className="transition-transform duration-300 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
                                             >
-                                                <path d="M7 7h10v10"></path>
-                                                <path d="M7 17 17 7"></path>
+                                                <path d="M7 7h10v10" />
+                                                <path d="M7 17 17 7" />
                                             </svg>
                                         </span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </BorderGlow>
 
-                            {/* 🔴 RED CTA BUTTON (YOUR REQUEST) */}
+                            {/* RED BUTTON */}
                             <BorderGlow
                                 edgeSensitivity={10}
                                 glowColor="4 8 8"
@@ -171,37 +185,43 @@ export default function HeroSection() {
                                 className="inline-flex w-fit"
                             >
                                 <div className="group relative p-3 rounded-full bg-transparent border-color-transparent">
-                                    <a
+                                    <Link
                                         href="/contact"
                                         className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-600 text-white font-medium overflow-hidden"
                                     >
                                         <span className="flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                                            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                                             Book a Shoot
                                         </span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </BorderGlow>
 
                         </div>
+
+                        {/* STATS */}
                         <div className="flex items-center gap-3 mt-6 flex-wrap">
 
-                            {/* CHIP 1 */}
-                            <button className={`${poppins.className} px-4 py-1.5 rounded-full border border-white/15 text-white text-[11px] md:text-[13px] tracking-wide hover:bg-white/10 transition`}>
+                            <button
+                                className={`${poppins.className} px-4 py-1.5 rounded-full border border-white/15 text-white text-[11px] md:text-[13px] tracking-wide hover:bg-white/10 transition`}
+                            >
                                 2M+ Views Created
                             </button>
 
-                            {/* CHIP 2 */}
-                            <button className={`${poppins.className} px-4 py-1.5 rounded-full border border-white/15 text-white text-[11px] md:text-[13px] tracking-wide hover:bg-white/10 transition`}>
+                            <button
+                                className={`${poppins.className} px-4 py-1.5 rounded-full border border-white/15 text-white text-[11px] md:text-[13px] tracking-wide hover:bg-white/10 transition`}
+                            >
                                 Cafe Reels from ₹1500
                             </button>
 
-                            {/* CHIP 3 */}
-                            <button className={`${poppins.className} px-4 py-1.5 rounded-full border border-white/15 text-white text-[11px] md:text-[13px] tracking-wide hover:bg-white/10 transition`}>
+                            <button
+                                className={`${poppins.className} px-4 py-1.5 rounded-full border border-white/15 text-white text-[11px] md:text-[13px] tracking-wide hover:bg-white/10 transition`}
+                            >
                                 15 Reels Package ₹15,000
                             </button>
 
                         </div>
+
                     </div>
 
                 </div>
@@ -213,13 +233,17 @@ export default function HeroSection() {
                     <div className="flex items-center justify-between px-4 py-3 text-white/80 text-xs">
                         <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                            <span className="tracking-widest">3VS • SHOWREEL</span>
+                            <span className="tracking-widest">
+                                3VS • SHOWREEL
+                            </span>
                         </div>
+
                         <span>00:30</span>
                     </div>
 
                     {/* VIDEO */}
                     <div className="relative">
+
                         <video
                             ref={videoRef}
                             className="w-full h-[200px] object-cover"
@@ -227,54 +251,62 @@ export default function HeroSection() {
                             muted
                             loop
                             playsInline
+                            preload="metadata"
                         >
-                            <source src="/videos/hero.mp4" type="video/mp4" />
+                            <source
+                                src="/videos/hero.mp4"
+                                type="video/mp4"
+                            />
                         </video>
 
-                        {/* overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
                         {/* PLAY BUTTON */}
                         <div className="absolute inset-0 flex items-center justify-center">
+
                             <button
                                 onClick={toggleVideo}
                                 className={`w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-lg hover:scale-105 transition ${playing ? "opacity-0" : "opacity-100"}`}
-                                
+                                aria-label={playing ? "Pause video" : "Play video"}
                             >
                                 {playing ? (
-                                    // pause icon
                                     <div className="flex gap-[3px]">
-                                        <span className="w-1.5 h-5 bg-black"></span>
-                                        <span className="w-1.5 h-5 bg-black"></span>
+                                        <span className="w-1.5 h-5 bg-black" />
+                                        <span className="w-1.5 h-5 bg-black" />
                                     </div>
                                 ) : (
-                                    // play icon
                                     <div className="w-0 h-0 border-l-[10px] border-l-black border-y-[7px] border-y-transparent ml-1" />
                                 )}
                             </button>
+
                         </div>
 
-                        {/* progress */}
+                        {/* PROGRESS */}
                         <div className="absolute bottom-2 left-4 right-4 h-[2px] bg-white/20 rounded-full overflow-hidden">
                             <div className="h-full w-[35%] bg-red-500" />
                         </div>
+
                     </div>
 
                     {/* TAGS */}
                     <div className="flex gap-2 px-4 py-3">
-                        {["REELS", "CAFE", "EDITING", "EVENTS"].map((tag, i) => (
+
+                        {TAGS.map((tag) => (
                             <span
-                                key={i}
+                                key={tag}
                                 className="text-[10px] px-3 py-1 rounded-full border border-white/10 text-white/70 hover:bg-white/10 transition"
                             >
                                 {tag}
                             </span>
                         ))}
+
                     </div>
+
                 </div>
+
             </div>
 
-            {/* SCAN LINE STYLE */}
+                        {/* SCAN LINE STYLE */}
             <style jsx>{`
                 .scan-line-vertical {
                     position: absolute;
@@ -282,6 +314,8 @@ export default function HeroSection() {
                     left: -10%;
                     width: 1.5px;
                     height: 100%;
+                    overflow: hidden;
+
                     background: linear-gradient(
                         to bottom,
                         transparent,
@@ -294,18 +328,16 @@ export default function HeroSection() {
                         0 0 40px rgba(255, 0, 0, 0.4);
 
                     animation: scanMove 5s linear infinite;
-                    overflow: hidden;
+                    will-change: transform;
                 }
 
-                /* ANIMATION */
                 @keyframes scanMove {
-                    0% {
-                        transform: translateX(0vw);
-                        opacity: 1;
+                    from {
+                        transform: translateX(0);
                     }
-                    100% {
+
+                    to {
                         transform: translateX(108vw);
-                        opacity: 1;
                     }
                 }
             `}</style>
