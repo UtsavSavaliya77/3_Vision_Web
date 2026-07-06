@@ -3,8 +3,8 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useCallback, useRef, useState } from "react";
-import { Instrument_Serif, Poppins } from "next/font/google";
 import BorderGlow from "@/components/animations/BorderGlow";
+import { Instrument_Serif, Poppins } from "next/font/google";
 
 const DotField = dynamic(
     () => import("@/components/animations/DotField"),
@@ -127,7 +127,7 @@ export default function HeroSection() {
                             Cinematic reels, sharp edits and brand films crafted to stop the scroll and build real impact.
                         </p>
 
-                                                {/* BUTTONS */}
+                        {/* BUTTONS */}
                         <div className="flex mt-8 ml-[-14px] gap-0 flex-wrap items-center">
 
                             {/* WHITE BUTTON */}
@@ -306,7 +306,7 @@ export default function HeroSection() {
 
             </div>
 
-                        {/* SCAN LINE STYLE */}
+            {/* SCAN LINE STYLE */}
             <style jsx>{`
                 .scan-line-vertical {
                     position: absolute;
