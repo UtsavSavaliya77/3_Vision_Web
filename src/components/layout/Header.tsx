@@ -69,7 +69,7 @@ export default function Header() {
         className={`fixed left-0 right-0 z-50 mx-3 px-2 lg:mx-auto rounded-full md:px-3 lg:px-6 flex items-center justify-between transition-all duration-500 overflow-visible z-[999]
         ${
           scrolled
-            ? "top-5 lg:max-w-6xl bg-black/75 border border-white/10 backdrop-blur-3xl shadow-[0_0_20px_rgba(255,0,0,0.2)] scale-95"
+            ? "top-3 lg:max-w-6xl bg-black/75 border border-white/10 backdrop-blur-3xl shadow-[0_0_20px_rgba(255,0,0,0.2)] scale-95"
             : "top-10 lg:max-w-6xl bg-none scale-100"
         }`}
       >
@@ -78,11 +78,11 @@ export default function Header() {
           <img
             src="/logo/logo.png"
             className={`${
-              scrolled ? "h-12 md:h-18 w-auto" : "h-24 lg:h-30 w-auto"
+              scrolled ? "h-16 md:h-18 w-auto" : "h-24 lg:h-30 w-auto"
             }`}
           />
           <span
-            className={`${poppins.className} text-white text-[12px] md:text-[14px] tracking-[0.2em] font-semibold uppercase`}
+            className={`${poppins.className} text-white text-[13px] md:text-[14px] tracking-[0.2em] font-semibold uppercase`}
           >
             3Vision <span className="text-white/60">Studio</span>
           </span>

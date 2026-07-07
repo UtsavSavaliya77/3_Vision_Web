@@ -112,7 +112,7 @@ export default function ContactUsSection() {
                             <a
                                 href="mailto:3visionstudiofficial@gmail.com?subject=Book%203Vision%20Studio"
                                 rel="noreferrer"
-                                className="group relative inline-flex min-w-[210px] items-center justify-center gap-2 overflow-hidden rounded-full bg-[#ef1d28] px-5 py-3 text-[15px] font-bold text-white shadow-[0_0_30px_rgba(239,29,40,0.22)] transition duration-300 hover:bg-[#ff2b37]"
+                                className="group relative inline-flex min-w-[210px] items-center justify-center gap-2 overflow-hidden rounded-full bg-[#ef1d28] px-5 py-3 text-[15px] font-bold text-white transition duration-300 hover:bg-[#ff2b37]"
                             >
                                 <span className="absolute inset-0 translate-y-full bg-gradient-to-t from-white/15 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
 

@@ -383,7 +383,7 @@ export default function SelectedReelSection() {
                         >
                             <div className="group relative p-3 rounded-full bg-transparent border-color-transparent">
                                 <a
-                                    href="/contact"
+                                    href="/work"
                                     className="group inline-flex items-center gap-2 rounded-full border-2 border-white/15 bg-black px-5 py-3 text-[12px] font-bold text-white transition hover:border-red-900"
                                 >
                                     See Full Portfolio
@@ -713,14 +713,14 @@ export default function SelectedReelSection() {
                                         className="!block !w-full !max-w-none"
                                     >
                                         <div className="w-full rounded-full bg-transparent p-3">
-                                            <Link
+                                            <a
                                                 href="/contact"
                                                 className="group flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#ef1d28] bg-[#ef1d28] px-5 py-3 text-[13px] font-semibold text-white transition duration-300 hover:border-red-900 hover:bg-[#ff2b37]"
                                             >
                                                 <span>Book Similar Reel</span>
 
                                                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]" />
-                                            </Link>
+                                            </a>
                                         </div>
                                     </BorderGlow>
                                 </div>

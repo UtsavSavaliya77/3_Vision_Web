@@ -144,7 +144,7 @@ export default function HeroSection() {
                                 className="inline-flex w-fit"
                             >
                                 <div className="group relative p-3 rounded-full bg-transparent border-color-transparent">
-                                    <Link
+                                    <a
                                         href="/work"
                                         className="group btn-glow relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-medium overflow-hidden"
                                     >
@@ -167,7 +167,7 @@ export default function HeroSection() {
                                                 <path d="M7 17 17 7" />
                                             </svg>
                                         </span>
-                                    </Link>
+                                    </a>
                                 </div>
                             </BorderGlow>
 
@@ -185,7 +185,7 @@ export default function HeroSection() {
                                 className="inline-flex w-fit"
                             >
                                 <div className="group relative p-3 rounded-full bg-transparent border-color-transparent">
-                                    <Link
+                                    <a
                                         href="/contact"
                                         className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-600 text-white font-medium overflow-hidden"
                                     >
@@ -193,7 +193,7 @@ export default function HeroSection() {
                                             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                                             Book a Shoot
                                         </span>
-                                    </Link>
+                                    </a>
                                 </div>
                             </BorderGlow>
 

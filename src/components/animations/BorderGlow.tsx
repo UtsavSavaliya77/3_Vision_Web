@@ -1,4 +1,3 @@
-
 import { useRef, useCallback, useState, useEffect, type ReactNode } from 'react';
 
 interface BorderGlowProps {
@@ -170,13 +169,14 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       onPointerMove={handlePointerMove}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
-      className={`relative inline-flex isolate border border-transparent ${className}`}
+      // FIX 1: Dynamically switch to 'flex' if 'w-full' is passed, else stay 'inline-flex'
+      className={`relative ${className?.includes('w-full') ? 'flex' : 'inline-flex'} isolate border border-transparent ${className}`}
       style={{
         background: backgroundColor,
         borderColor: `rgb(${borderColor})`,
         borderRadius: `${borderRadius}px`,
         transform: 'translate3d(0, 0, 0.01px)',
-        }}
+      }}
     >
       {/* mesh gradient border */}
       <div
@@ -248,7 +248,8 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
         />
       </span>
 
-      <div className="flex flex-col relative overflow-auto z-[1]">
+      {/* FIX 2: Added w-full so inner content stretches to match the outer wrapper */}
+      <div className="flex flex-col relative overflow-auto z-[1] w-full">
         {children}
       </div>
     </div>

@@ -219,12 +219,12 @@ export default function ChatModal({ open, onClose }: ChatModalProps) {
             >
               WhatsApp Us →
             </Link>
-            <Link
+            <a
               href="/contact"
               className="text-[11px] uppercase tracking-[.16em] text-red-500 hover:text-white"
             >
               Book a Shoot
-            </Link>
+            </a>
           </div>
         </div>
       </div>

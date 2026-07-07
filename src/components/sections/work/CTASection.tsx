@@ -42,7 +42,7 @@ export default function CtaSection() {
             className="inline-flex w-fit"
           >
             <div className="group relative p-3 rounded-full bg-transparent">
-              <Link
+              <a
                 href="/contact"
                 className="group inline-flex items-center gap-2 rounded-full border-2 border-[#ef1d28] bg-[#ef1d28] px-[22px] py-[12px] text-base font-bold text-white transition hover:border-red-900"
               >
@@ -64,7 +64,7 @@ export default function CtaSection() {
                     <path d="M7 17 17 7" />
                   </svg>
                 </span>
-              </Link>
+              </a>
             </div>
           </BorderGlow>
 
@@ -82,12 +82,12 @@ export default function CtaSection() {
             className="inline-flex w-fit"
           >
             <div className="group relative p-3 rounded-full bg-transparent">
-              <Link
-                href="/contact"
+              <a
+                href="/packages"
                 className={`${poppins.className} group inline-flex items-center rounded-full border-1 border-white/10 bg-black px-[22px] py-[12px] text-base font-bold text-white transition hover:border-white`}
               >
                 See Packages
-              </Link>
+              </a>
             </div>
           </BorderGlow>
         </div>

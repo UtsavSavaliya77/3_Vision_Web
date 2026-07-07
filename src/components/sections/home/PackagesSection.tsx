@@ -92,7 +92,7 @@ export default function PackagesSection() {
                         >
                             <div className="group relative p-3 rounded-full bg-transparent border-color-transparent">
                                 <a
-                                    href="/contact"
+                                    href="/packages"
                                     className="group inline-flex items-center gap-2 rounded-full border-2 border-[#ef1d28] bg-[#ef1d28] px-4 py-3 text-base font-bold text-white transition hover:border-red-900"
                                 >
                                     Explore Packages

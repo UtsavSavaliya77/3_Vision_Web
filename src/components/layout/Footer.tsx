@@ -53,7 +53,7 @@ export default function Footer() {
 
     return (
         <footer
-            className={`${poppins.className} relative overflow-hidden bg-black px-5 pt-[3.5rem] text-white md:px-10 md:pt-[7vw]`}
+            className={`${poppins.className} relative overflow-hidden bg-black px-5 pt-14 text-white md:px-8 md:pt-20 pb-8 md:pb-10`}
         >
             {/* Top divider */}
             <div className="absolute inset-x-0 top-0 z-30 h-px bg-white/10" />
@@ -61,7 +61,7 @@ export default function Footer() {
             {/* Thick center aurora animation */}
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[53%] z-[2] h-[360px] w-[125%] -translate-x-1/2 -translate-y-1/2 overflow-hidden opacity-100 mix-blend-screen sm:h-[420px] md:top-[55%] lg:top-[50%] md:h-[500px]"
+                className="pointer-events-none absolute left-1/2 top-[53%] z-[2] h-[360px] w-[125%] -translate-x-1/2 -translate-y-1/2 overflow-hidden opacity-100 mix-blend-screen sm:h-[420px] md:top-[55%] lg:top-[45%] md:h-[500px]"
             >
                 <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]">
                     <SoftAurora
@@ -133,7 +133,7 @@ export default function Footer() {
                             </span>
                         </div>
 
-                        <ul className="mt-4">
+                        <ul className="mt-5 space-y-2">
                             {navigationLinks.map((item) => {
                                 const active =
                                     item.href === "/"
@@ -225,7 +225,7 @@ export default function Footer() {
                 </div>
 
                 {/* Copyright row */}
-                <div className="mt-10 flex flex-col gap-3 pt-6 md:mt-14 md:flex-row md:items-end md:justify-between">
+                <div className="mt-6 flex flex-col gap-3 pt-6 md:mt-10 md:flex-row md:items-end md:justify-between">
                     <div>
                         <div className="text-xs uppercase tracking-[0.18em] text-white/70">
                             © {new Date().getFullYear()} 3Vision Studio
@@ -244,7 +244,7 @@ export default function Footer() {
                 {/* Large footer typography */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none -mx-5 mt-8 mb-10 select-none overflow-hidden md:-mx-8 md:mt-10"
+                    className="pointer-events-none -mx-5 mt-8 select-none overflow-hidden md:-mx-8 md:mt-10"
                 >
                     <div
                         className={`${instrumentSerif.className} whitespace-nowrap text-center text-[clamp(3.5rem,18vw,17rem)] leading-[0.85] text-white/[0.18]`}

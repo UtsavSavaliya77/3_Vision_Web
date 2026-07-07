@@ -68,7 +68,7 @@ export default function ServicesSection() {
                         >
                             <div className="group relative p-3 rounded-full bg-transparent border-color-transparent">
                                 <a
-                                    href="/contact"
+                                    href="/services"
                                     className="group inline-flex items-center gap-2 rounded-full border-2 border-white/15 bg-black px-4 py-3 text-base font-bold text-white transition hover:border-red-900"
                                 >
                                     All Services
